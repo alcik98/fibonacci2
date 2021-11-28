@@ -9,3 +9,16 @@ before_install:
 
 script:
   - docker run -e CI=true spglab/lab21 npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-test"
+  env: "dockertest-env"
+  bucket_name: "elasticbeanstalk-us-east-2-039699603980"
+  bucket_path: "docker-test"
+  on:
+    branch: main
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key:
+  secure: "$AWS_SECRET_KEY"
