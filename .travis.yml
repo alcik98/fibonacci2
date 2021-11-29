@@ -17,6 +17,7 @@ deploy:
   env: "dockertest-env"
   bucket_name: "elasticbeanstalk-us-east-2-039699603980"
   bucket_path: "docker-test"
+  edge: true
   on:
     branch: main
   access_key_id: $AWS_ACCESS_KEY
